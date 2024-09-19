@@ -1,4 +1,4 @@
-# A Fullstack Inventory Management Dashboard
+# Inventory Management System
 
 ## Tech Stack
 
