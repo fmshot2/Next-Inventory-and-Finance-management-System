@@ -5,26 +5,26 @@ import Header from "@/app/(components)/Header";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
-  { field: "productId", headerName: "ID", width: 90 },
-  { field: "name", headerName: "Product Name", width: 200 },
+  { field: "productId", headerName: "ID", flex: 1 },
+  { field: "name", headerName: "Product Name", flex: 1 }, // Use flex to fill available space
   {
     field: "price",
     headerName: "Price",
-    width: 110,
     type: "number",
+    flex: 1,
     valueGetter: (value, row) => `$${row.price}`,
   },
   {
     field: "rating",
     headerName: "Rating",
-    width: 110,
     type: "number",
+    flex: 1,
     valueGetter: (value, row) => (row.rating ? row.rating : "N/A"),
   },
   {
     field: "stockQuantity",
     headerName: "Stock Quantity",
-    width: 150,
+    flex: 1, // Use flex with smaller value for proportional sizing
     type: "number",
   },
 ];
@@ -47,13 +47,21 @@ const Inventory = () => {
   return (
     <div className="flex flex-col">
       <Header name="Inventory" />
-      <DataGrid
-        rows={products}
-        columns={columns}
-        getRowId={(row) => row.productId}
-        checkboxSelection
-        className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
-      />
+      <div className="mx-auto mt-5 w-full"> {/* Added w-full to container */}
+        <DataGrid
+          rows={products}
+          columns={columns}
+          getRowId={(row) => row.productId}
+          checkboxSelection
+          autoHeight
+          className="bg-white shadow rounded-lg border border-gray-200 !text-gray-700"
+          sx={{
+            '& .MuiDataGrid-main': {
+              width: '100%'
+            }
+          }}
+        />
+      </div>
     </div>
   );
 };
