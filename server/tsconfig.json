@@ -1,14 +1,17 @@
 {
- "compilerOptions": {
+  "compilerOptions": {
     "target": "es2018",
     "lib": ["ES2018"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "skipLibCheck": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
