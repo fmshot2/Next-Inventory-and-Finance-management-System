@@ -74,7 +74,7 @@ const Navbar = () => {
               height={50}
               className="rounded-full h-full object-cover"
             />
-            <span className="font-semibold">Femi Shotola</span>
+            <span className="font-semibold">Ed Roh</span>
           </div>
         </div>
         <Link href="/settings">
